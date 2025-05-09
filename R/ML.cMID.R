@@ -47,8 +47,7 @@ ML.cMID <- function(X,
                      delta.init = NULL,
                      eta.init = NULL,
                      maxit = 10000,
-                     reltol = 1e-15,
-                     trace = 0){
+                     reltol = 1e-15){
 
   X  <- as.matrix(X)
   d  <- ncol(X)
@@ -118,7 +117,7 @@ ML.cMID <- function(X,
   }
 
   res <- optim(par = init, fn = f, X = X, weights = weights, d = d,
-               method = method, control = list(fnscale = -1, maxit = maxit, reltol = reltol, trace = trace))
+               method = method, control = list(fnscale = -1, maxit = maxit, reltol = reltol))
 
   loglik <- res$value
   par   <- res$par
@@ -157,7 +156,7 @@ ML.cMID <- function(X,
       good   = good,
       theta  = theta,
       gamma  = gamma,
-      delta   = 1-delta,
+      delta   = (1-delta),
       eta    = eta,
       npar   = npar,
       loglik = loglik,
