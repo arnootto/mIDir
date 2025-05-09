@@ -48,7 +48,7 @@ init.gamma <- function(X, weights = NULL, j = 1, theta){
 
   }
 
-  res <- uniroot(f = f, interval = c(0, 10000), sigma2 = sigma2, thetaj = thetaj, d = d)
+  res <- uniroot(f = f, interval = c(0, 100), sigma2 = sigma2, thetaj = thetaj, d = d)
 
   return(res$root)
 
