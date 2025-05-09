@@ -163,5 +163,6 @@ ML.cMID <- function(X,
       AIC    = AIC,
       BIC    = BIC
   )
+  )
 
 }
