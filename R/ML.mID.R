@@ -24,7 +24,6 @@
 #'   \item{counts}{Number of function and gradient evaluations from \code{optim}.}
 #' }
 #'
-#'
 #' @import stats
 #' @export
 ML.mID <- function(X,
@@ -100,10 +99,7 @@ ML.mID <- function(X,
       npar   = npar,
       loglik = loglik,
       AIC    = AIC,
-      BIC    = BIC,
-      convergence = res$convergence, # see optim()
-      counts      = res$counts # see optim()
-    )
+      BIC    = BIC)
   )
 
 }

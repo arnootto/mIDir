@@ -157,15 +157,12 @@ ML.cMID <- function(X,
       good   = good,
       theta  = theta,
       gamma  = gamma,
-      delta   = delta,
+      delta   = 1-delta,
       eta    = eta,
       npar   = npar,
       loglik = loglik,
       AIC    = AIC,
-      BIC    = BIC,
-      convergence = res$convergence, # see optim()
-      counts      = res$counts # see optim()
-    )
+      BIC    = BIC
   )
 
 }
