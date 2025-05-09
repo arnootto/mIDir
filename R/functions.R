@@ -28,6 +28,8 @@ moda <- function(X, weights = NULL){
 ###################
 
 library(modi)
+
+
 init.gamma <- function(X, weights = NULL, j = 1, theta){
 
   Xj <- X[,j]
@@ -40,15 +42,17 @@ init.gamma <- function(X, weights = NULL, j = 1, theta){
 
   sigma2 <- modi::weighted.var(x = Xj, w = weights, na.rm = FALSE)
   f <- function(gamma, sigma2, thetaj, d){
-
-    num <- gamma*(thetaj + gamma)*(1 - thetaj + d*gamma)
-    den <- (1 + d*gamma)^2*(1 + (d + 1)*gamma)
+    #method of moments of variance=
+    num <- gamma*(thetaj*(1/gamma+d+2)+1)*(1/gamma+thetaj*(1/gamma+d+2)+2)
+    den <- (1/gamma+1)^2
+    #num <- gamma*(thetaj + gamma)*(1 - thetaj + d*gamma)
+    #den <- (1 + d*gamma)^2*(1 + (d + 1)*gamma)
 
     return(num/den - sigma2)
 
   }
 
-  res <- uniroot(f = f, interval = c(0, 10), sigma2 = sigma2, thetaj = thetaj, d = d)
+  res <- uniroot(f = f, interval = c(0.1,10), extendInt = "upX", sigma2 = sigma2, thetaj = thetaj, d = d)
 
   return(res$root)
 
