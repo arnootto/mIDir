@@ -78,7 +78,7 @@ ML.mID <- function(X,
   }
 
   res <- optim(par = init, fn = f, X = X, weights = weights,
-               method = method, control = list(fnscale = -1, maxit = maxit, reltol = reltol, trace = trace))
+               method = method, control = list(fnscale = -1, maxit = maxit, reltol = reltol))
 
   loglik <- res$value
   par    <- res$par
