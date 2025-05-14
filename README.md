@@ -15,8 +15,8 @@ library(mIDir)
 library(rrcov)
 data("fruit")
 X <- fruit[,c("V3","V4")]*10 #scale the data
-a=ML.mID(X)
-b=ML.cMID(X)
+a=ml.mIDir(X)
+b=ml.cmIDir(X)
 ```
 Code to reproduce Example 5.2: Australian Institute of Sport data
 ```{r}
@@ -24,5 +24,5 @@ Code to reproduce Example 5.2: Australian Institute of Sport data
 library(mIDir)
 library(sn)
 data("ais")
-c=ML.mMID(X = as.data.frame(cbind(ais$LBM,ais$Wt,ais$BMI,ais$WCC,ais$Bfat)),k=2, method = "BFGS",initialization = "random.soft",max.iter = 1000)
+c=ml.MmIDir(X = as.data.frame(cbind(ais$LBM,ais$Wt,ais$BMI,ais$WCC,ais$Bfat)),k=2, method = "BFGS",initialization = "random.soft",max.iter = 1000)
 ```
