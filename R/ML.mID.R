@@ -26,7 +26,7 @@
 #'
 #' @import stats
 #' @export
-ML.mID <- function(X,
+ml.mIDir <- function(X,
                     weights = NULL,
                     method = "BFGS",
                     theta.init = NULL,
@@ -71,7 +71,7 @@ ML.mID <- function(X,
     # Log-Likelihood #
     # -------------- #
 
-    loglik <- sum(weights*dMID(x = X, param=par, log = TRUE))
+    loglik <- sum(weights*dmIDir(x = X, param=par, log = TRUE))
 
     return(loglik)
 

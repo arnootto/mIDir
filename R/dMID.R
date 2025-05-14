@@ -15,7 +15,7 @@
 #' dMID(x, param, log = TRUE)
 #'
 #' @export
-dMID <- function(x,param,log=FALSE){
+dmIDir <- function(x,param,log=FALSE){
   x <- data.frame(x)
   ncol <- ncol(x)
   p <-length(param)-1

@@ -17,7 +17,7 @@
 #' FromIDtoMID.par(alpha)
 #'
 #' @export
-FromIDtoMID.par <- function(alpha){
+FromIDirtomIDir.par <- function(alpha){
   d <- length(alpha)
   theta <- numeric(d-1)
   for(j in 1:(d-1))

@@ -13,7 +13,7 @@
 #' FromMIDtoID.par(theta, gamma)
 #'
 #' @export
-FromMIDtoID.par <- function(theta,gamma){
+FrommIDirtoIDir.par <- function(theta,gamma){
 
 d <- length(theta) + 1
 alpha <- numeric(d)

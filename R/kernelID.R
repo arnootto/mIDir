@@ -6,12 +6,12 @@
 #' @param data Numeric matrix with \code{d} columns and \code{n} rows, the sample data where each row represents a vector of positive values.
 #' @param gamma Numeric scalar, the variance parameter for the inverted Dirichlet kernel (positive).
 #'
-#' @details The \code{kernelID} function computes a kernel density estimate at point \code{x} using the mode-parameterized inverted Dirichlet distribution as the kernel.
+#' @details The \code{kernelIDir} function computes a kernel density estimate at point \code{x} using the mode-parameterized inverted Dirichlet distribution as the kernel.
 #'
 #' @return A numeric scalar, the kernel density estimate at \code{x}.
 #'
 #' @export
-kernelID <- function(x,data,gamma){
+kernelIDir <- function(x,data,gamma){
   x <- matrix(x, nrow = 1)
 
   n <- nrow(data)

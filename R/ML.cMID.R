@@ -39,7 +39,7 @@
 #'
 #' @import stats
 #' @export
-ML.cMID <- function(X,
+ml.cmIDir <- function(X,
                      weights = NULL,
                      method = "Nelder-Mead",
                      theta.init = NULL,
@@ -110,7 +110,7 @@ ML.cMID <- function(X,
     # Log-Likelihood #
     # -------------- #
 
-    loglik <- sum(weights*log(dcMID(x = X, theta = theta, gamma = gamma, delta = delta, eta = eta)))
+    loglik <- sum(weights*log(dcmIDir(x = X, theta = theta, gamma = gamma, delta = delta, eta = eta)))
 
     return(loglik)
 
@@ -139,7 +139,7 @@ ML.cMID <- function(X,
   # Probability to be a good observation #
   # ------------------------------------ #
 
-  good.prob <- delta*dMID(x = X, param = c(theta , gamma), log = FALSE)/dcMID(x = X, theta = theta, gamma = gamma, delta = delta, eta = eta)
+  good.prob <- delta*dmIDir(x = X, param = c(theta , gamma), log = FALSE)/dcmIDir(x = X, theta = theta, gamma = gamma, delta = delta, eta = eta)
   good <- round(good.prob,0)
 
   # --------------- #

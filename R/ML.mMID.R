@@ -14,7 +14,7 @@
 #' @param max.iter Maximum number of EM iterations. Default is 5000.
 #' @param plotll Logical; if \code{TRUE}, plots the log-likelihood over iterations. Default is \code{TRUE}.
 #'
-#' @details The \code{ML.mMID} function fits a mixture of \code{k} mode-parameterized inverted Dirichlet distributions to the data \code{X} using the EM algorithm.
+#' @details The \code{ML.MmIDir} function fits a mixture of \code{k} mode-parameterized inverted Dirichlet distributions to the data \code{X} using the EM algorithm.
 #'
 #' @return An object of class \code{"mixIDir"} (list) containing:
 #' \describe{
@@ -37,7 +37,7 @@
 #'
 #' @import stats
 #' @export
-ML.mMID <- function(
+ml.MmIDir <- function(
     X,
     k,
     initialization="kmeans",
@@ -110,7 +110,7 @@ ML.mMID <- function(
   prior <- colMeans(z)
   for(j in 1:k){
 
-    temp <- ML.mID(X = X,
+    temp <- ml.mIDir(X = X,
                     weights = z[,j],
                     method = method,
                     theta.init = NULL,
@@ -125,7 +125,7 @@ ML.mMID <- function(
     # densities #
     # --------- #
 
-    densX    <- dMID(x = X,param = c(theta[,j], gamma[j]), log = FALSE)
+    densX    <- dmIDir(x = X,param = c(theta[,j], gamma[j]), log = FALSE)
     dens[,j] <- prior[j]*densX
 
   }
@@ -166,7 +166,7 @@ ML.mMID <- function(
 
     for(j in 1:k){
 
-      temp <- ML.mID(X = X,
+      temp <- ml.mIDir(X = X,
                       weights = z[,j],
                       method = method,
                       theta.init = theta[,j],
@@ -181,7 +181,7 @@ ML.mMID <- function(
       # densities #
       # --------- #
 
-      densX    <- dMID(x = X, param = c(theta[,j], gamma[j]), log = FALSE)
+      densX    <- dmIDir(x = X, param = c(theta[,j], gamma[j]), log = FALSE)
       dens[,j] <- prior[j]*densX
     }
     print(iteration)
