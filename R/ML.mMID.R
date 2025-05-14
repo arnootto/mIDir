@@ -184,7 +184,7 @@ ml.MmIDir <- function(
       densX    <- dmIDir(x = X, param = c(theta[,j], gamma[j]), log = FALSE)
       dens[,j] <- prior[j]*densX
     }
-    print(iteration)
+    #print(iteration)
     # ------------------------------------- #
     # Global - Observed-data log-likelihood #
     # ------------------------------------- #
